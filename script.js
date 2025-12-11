@@ -24,13 +24,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Inizializza EmailJS
 (function() {
     emailjs.init('7buVZM9njzFCLOI73');
     console.log('✅ EmailJS inizializzato');
 })();
 
-// Rate limiting: massimo 2 email al giorno
 const MAX_EMAILS_PER_DAY = 2;
 const RATE_LIMIT_KEY = 'emailRateLimit';
 
@@ -38,7 +36,6 @@ function checkRateLimit() {
     const today = new Date().toDateString();
     const storedData = JSON.parse(localStorage.getItem(RATE_LIMIT_KEY) || '{}');
     
-    // Reset se è un nuovo giorno
     if (storedData.date !== today) {
         storedData.date = today;
         storedData.count = 0;
@@ -61,7 +58,6 @@ const contactForm = document.getElementById('contactForm');
 contactForm.addEventListener('submit', async function(e) {
     e.preventDefault();
     
-    // Controlla il rate limit
     const rateLimit = checkRateLimit();
     if (rateLimit.count >= MAX_EMAILS_PER_DAY) {
         const remaining = new Date().setHours(23, 59, 59, 999) - new Date();
@@ -72,7 +68,6 @@ contactForm.addEventListener('submit', async function(e) {
         return;
     }
     
-    // Sanitizza i dati (rimuove eventuali HTML/script)
     const name = this.querySelector('input[type="text"]').value.trim();
     const email = this.querySelector('input[type="email"]').value.trim();
     const message = this.querySelector('textarea').value.trim();
@@ -82,14 +77,12 @@ contactForm.addEventListener('submit', async function(e) {
         return;
     }
 
-    // Validazione email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
         alert('Per favore, inserisci un\'email valida!');
         return;
     }
 
-    // Escape HTML per prevenire injections
     const escapeHtml = (text) => {
         const div = document.createElement('div');
         div.textContent = text;
@@ -103,10 +96,9 @@ contactForm.addEventListener('submit', async function(e) {
     submitButton.disabled = true;
 
     try {
-        // Invia l'email usando EmailJS (i dati sono già sanitizzati)
         const response = await emailjs.send(
-            'service_q127bya',           // SERVICE_ID
-            'template_3k2rduc',          // TEMPLATE_ID
+            'service_q127bya', 
+            'template_3k2rduc',
             {
                 from_name: escapeHtml(name),
                 from_email: escapeHtml(email),
@@ -116,9 +108,7 @@ contactForm.addEventListener('submit', async function(e) {
         );
 
         if (response.status === 200) {
-            // Incrementa il contatore solo se l'email è stata inviata con successo
             incrementEmailCount();
-            
             const remaining = MAX_EMAILS_PER_DAY - (rateLimit.count + 1);
             alert(`✅ Messaggio inviato con successo!\n\nSimone riceverà il tuo messaggio e ti contatterà presto.\n\n(${remaining} messaggi rimasti oggi)`);
             contactForm.reset();
