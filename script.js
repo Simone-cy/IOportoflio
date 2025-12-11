@@ -38,15 +38,12 @@ contactForm.addEventListener('submit', function(e) {
         return;
     }
 
-    // Crea il corpo dell'email con le informazioni
     const subject = encodeURIComponent(`Nuovo messaggio da ${name}`);
     const body = encodeURIComponent(`Nome: ${name}\nEmail: ${email}\n\nMessaggio:\n${message}`);
     
-    // Reindirizza a Gmail
     window.location.href = `https://mail.google.com/mail/?view=cm&fs=1&to=ruggierosimone05@gmail.com&su=${subject}&body=${body}`;
 });
 
-// Scroll animations for elements
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -61,36 +58,30 @@ const observer = new IntersectionObserver(function(entries) {
     });
 }, observerOptions);
 
-// Observe skill cards
 document.querySelectorAll('.skill-card').forEach((card, index) => {
     card.style.opacity = '0';
     card.style.animationDelay = `${index * 0.1}s`;
     observer.observe(card);
 });
 
-// Observe stat cards
 document.querySelectorAll('.stat').forEach((card, index) => {
     card.style.opacity = '0';
     card.style.animationDelay = `${index * 0.1}s`;
     observer.observe(card);
 });
 
-// Update year automatically
 document.addEventListener('DOMContentLoaded', function() {
     const yearElement = document.getElementById('year');
     if (yearElement) {
         yearElement.textContent = new Date().getFullYear();
     }
     
-    // Replace placeholder email with your actual email
     const emailLink = document.querySelector('a[href^="mailto:"]');
     if (emailLink) {
-        // Change 'tuaemail@example.com' to your actual email
-        emailLink.href = 'mailto:tuaemail@example.com';
+        emailLink.href = 'mailto:ruggierosimone05@gmail.com';
     }
 });
 
-// Navbar background on scroll
 window.addEventListener('scroll', function() {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 50) {
