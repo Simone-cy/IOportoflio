@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Simone Ruggiero</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Simone Ruggiero</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Chi Sono</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contatti</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Ciao! Sono Simone Ruggiero</h1>
+            <p class="hero-subtitle">Aspirante Full Stack Developer</p>
+            <a href="#contact" class="cta-button">Contattami</a>
+        </div>
+        <div class="hero-background"></div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Chi Sono</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Ciao! Sono Simone Ruggiero, un giovane appassionato di informatica che sta costruendo il suo percorso nel mondo dello sviluppo web.</p>
+                    <p>Mi sto formando nel full stack, creando per gioco progetti di vario tipo con utilizzi reali.</p>
+                    <p>Mi piace imparare continuamente, affrontare nuove sfide e migliorarmi ogni giorno.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat">
+                        <h3>10+</h3>
+                        <p>Linguaggi & Tecnologie</p>
+                    </div>
+                    <div class="stat">
+                        <h3>100%</h3>
+                        <p>Motivazione</p>
+                    </div>
+                    <div class="stat">
+                        <h3>∞</h3>
+                        <p>Passione per l'informatica</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Le Mie Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🎨</div>
+                    <h3>Frontend</h3>
+                    <p>HTML, CSS, JavaScript, React, Tailwind</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">⚙️</div>
+                    <h3>Backend</h3>
+                    <p>Node.js, Express, basi di database</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">📱</div>
+                    <h3>Mobile</h3>
+                    <p>React Native, Flutter</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">📚</div>
+                    <h3>Strumenti</h3>
+                    <p>Git, VS Code, npm</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">⚡</div>
+                    <h3>Performance</h3>
+                    <p>Ottimizzazione frontend</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🔧</div>
+                    <h3>Problem Solving</h3>
+                    <p>Debugging, logica, troubleshooting</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contattami</h2>
+            <p class="contact-subtitle">Aperto a collaborazioni, opportunità e nuovi progetti</p>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <h3>📧 Email</h3>
+                        <p><a href="mailto:ruggierosimone05@gmail.com">ruggierosimone05@gmail.com</a></p>
+                    </div>
+                    <div class="info-item">
+                        <h3>💼 LinkedIn</h3>
+                        <p><a href="https://www.linkedin.com/in/simone-ruggiero-5911a934b" target="_blank">LinkedIn di Simone</a></p>
+                    </div>
+                    <div class="info-item">
+                        <h3>👨‍💻 GitHub</h3>
+                        <p><a href="https://github.com/Simone-cy" target="_blank">Il mio GitHub</a></p>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <input type="text" placeholder="Il tuo nome" required>
+                    <input type="email" placeholder="La tua email" required>
+                    <textarea placeholder="Il tuo messaggio" rows="5" required></textarea>
+                    <button type="submit" class="cta-button">Invia Messaggio</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="year"></span> - Portfolio di Simone Ruggiero</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
